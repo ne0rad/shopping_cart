@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+
+:root {
+  --background: #cecece;
+  --foreground: #383838;
+}
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 40px;
+  background-color: #525252;
+  color: #ebebeb;
+  box-shadow: 0 3px 6px 0 black;
+}
+
+#menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-right: 10px;
+}
+
+#header-logo {
+  margin: 3px 10px 3px 10px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  margin: 3px 15px 3px 15px;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--background);
+  transition: all 0.2s;
+}
+
+.menu-item svg {
+  width: 30px;
+  height: auto;
+  fill: var(--background);
+}
+.menu-item svg:hover {
+  fill: white;
+}
+
+.menu-item:hover {
+  color: white;
+}
+
+.menu-item svg:active {
+  fill: black;
+}
+
+.menu-item:active {
+  color: black;
+}
