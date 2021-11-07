@@ -4,16 +4,21 @@ import Products from '../Pages/Products';
 import Contacts from '../Pages/Contacts';
 import NotFound from '../Pages/NotFound';
 
-function Main() {
+function Main({ cart, addToCart, changeQuantity, toggleCart }) {
     return (
-            <Routes>
+        <Routes>
 
-                <Route path="/" element={<Home />} />
-                <Route path="/products" element={<Products />} />
-                <Route path="/contacts" element={<Contacts />} />
-                <Route path="*" element={<NotFound />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Products
+                cart={cart}
+                addToCart={addToCart}
+                changeQuantity={changeQuantity}
+                toggleCart={toggleCart}
+            />} />
+            <Route path="/contacts" element={<Contacts />} />
+            <Route path="*" element={<NotFound />} />
 
-            </Routes>
+        </Routes>
     )
 }
 

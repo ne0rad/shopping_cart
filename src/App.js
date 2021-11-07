@@ -6,51 +6,66 @@ import Main from "./Components/Main";
 import Footer from "./Components/Footer";
 
 function App() {
-	const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState([]);
+    const [cartQuantity, setCartQuantity] = useState([]);
+    const [cartOpen, setCartOpen] = useState(false);
 
-	function addToCart(item) {
-		const itemInCart = cart.find(cartItem => cartItem.id === item.id);
-		if (itemInCart) {
-			itemInCart.quantity++;
-		} else {
-			item.quantity = 1;
-			setCart([...cart, item]);
-		}
-	}
+    function addToCart(item) {
+        const itemIndex = cart.findIndex(cartItem => cartItem.id === item.id);
+        if (itemIndex === -1) {
+            setCart([...cart, item]);
+            setCartQuantity([...cartQuantity, 1]);
+        } else {
+            const newCartQuantity = [...cartQuantity];
+            newCartQuantity[itemIndex]++;
+            setCartQuantity(newCartQuantity);
+        }
+    }
 
-	function changeQuantity(item, quantity) {
-		const itemInCart = cart.find(cartItem => cartItem.id === item.id);
-		if (itemInCart) {
-			itemInCart.quantity = quantity;
-		}
-	}
+    function changeQuantity(item, quantity) {
+        const itemIndex = cart.findIndex(cartItem => cartItem.id === item.id);
+        const newCartQuantity = [...cartQuantity];
+        newCartQuantity[itemIndex] = quantity;
+        setCartQuantity(newCartQuantity);
+    }
 
-	function removeFromCart(item) {
-		setCart(cart.filter(cartItem => cartItem.id !== item.id));
-	}
+    function removeFromCart(item) {
+        setCart(cart.filter(cartItem => cartItem.id !== item.id));
+    }
 
-	function clearCart() {
-		setCart([]);
-	}
+    function clearCart() {
+        setCart([]);
+    }
 
-	return (
-		<>
-			<Cart
-				cart={cart}
-				removeFromCart={removeFromCart}
-				changeQuantity={changeQuantity}
-				clearCart={clearCart}
-			/>
-			<BrowserRouter>
-				<Header />
-				<Main
-					addToCart={addToCart}
-					changeQuantity={changeQuantity}
-				/>
-				<Footer />
-			</BrowserRouter>
-		</>
-	)
+    function toggleCart() {
+        setCartOpen(!cartOpen);
+    }
+
+    return (
+        <div id="content">
+            <Cart
+                cart={cart}
+                cartQuantity={cartQuantity}
+                removeFromCart={removeFromCart}
+                changeQuantity={changeQuantity}
+                clearCart={clearCart}
+                cartOpen={cartOpen}
+                toggleCart={toggleCart}
+            />
+            <BrowserRouter>
+                <Header
+                    toggleCart={toggleCart}
+                />
+                <Main
+                    cart={cart}
+                    addToCart={addToCart}
+                    changeQuantity={changeQuantity}
+                    toggleCart={toggleCart}
+                />
+            </BrowserRouter>
+            <Footer />
+        </div>
+    )
 }
 
 export default App;
