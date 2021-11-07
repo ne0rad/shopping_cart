@@ -3,18 +3,25 @@ import ProductsJSON from '../Products/products.json';
 function Cart({ cart, cartQuantity, removeFromCart, changeQuantity, clearCart, cartOpen, toggleCart }) {
 
     function checkOut() {
+        let total = getTotalPrice();
+        alert('You have been charged £' + total + ' on your fake credit card!');
+        clearCart();
+        toggleCart();
+    }
+
+    function getTotalPrice() {
         let total = 0;
         cart.map((item, i) => {
             const itemIndex = ProductsJSON.findIndex(product => product.id === item.id);
             return total += ProductsJSON[itemIndex].price * cartQuantity[i];
         });
         total = Math.round(total * 100) / 100;
-        alert('You have been charged £' + total + ' on your fake credit card!');
-        clearCart();
+        return total;
     }
 
     return (
         <>
+
             {
                 cartOpen && (
                     <div id="Cart">
@@ -30,8 +37,9 @@ function Cart({ cart, cartQuantity, removeFromCart, changeQuantity, clearCart, c
                                         )
                                     })}
                                 </ul>
-                                <button className="btn"  onClick={() => checkOut()}>Checkout</button>
-                                <button className="btn"  onClick={() => clearCart()}>Clear Cart</button>
+                                <div>Total: £{getTotalPrice()}</div>
+                                <button className="btn" onClick={() => checkOut()}>Checkout</button>
+                                <button className="btn" onClick={() => clearCart()}>Clear Cart</button>
                             </div>
                         ) : (
                             <div>

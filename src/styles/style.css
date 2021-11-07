@@ -43,6 +43,24 @@ body {
   box-shadow: 2px 2px 4px 0 black;
 }
 
+#cart-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 14px;
+  width: 20px;
+  height: 20px;
+  right: 30px;
+  top: -7px;
+  border-radius: 50%;
+  background-color: #1157da;
+  color: white;
+  opacity: 0.8;
+  z-index: 1;
+  pointer-events: none;
+}
+
 #Header {
   position: fixed;
   top: 0;
