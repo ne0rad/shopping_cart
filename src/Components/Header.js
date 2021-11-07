@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 function Header() {
     return (
-                <div id="header">
+                <div id="Header">
                     <div id="header-logo">
                         ⦾ NeoTech ⦾
                     </div>

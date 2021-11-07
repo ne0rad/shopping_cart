@@ -19,9 +19,12 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-top:  40px;
 }
 
-#header {
+#Header {
+  position: fixed;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -66,12 +69,12 @@ body {
   transition: all 0.2s;
 }
 .menu-item svg:hover {
-  filter: drop-shadow(0 0 5px white);
+  filter: drop-shadow(0 0 1px white);
   fill: white;
 }
 
 .menu-item:hover {
-  text-shadow: 0 0 5px white;
+  text-shadow: 0 0 1px white;
   color: white;
 }
 
@@ -83,4 +86,32 @@ body {
 .menu-item:active {
   color: white;
   text-shadow: none;
+}
+
+#Footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 30px;
+  background-color: #3570bd;
+  color: #ebebeb;
+  box-shadow: 0 0 6px 1px black;
+  user-select: none;
+}
+
+.footer-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  margin: 3px 15px 3px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--background);
+  transition: all 0.2s;
 }
