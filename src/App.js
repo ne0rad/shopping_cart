@@ -31,7 +31,7 @@ function App() {
             newCart.push(id);
             newQuantity.push(1);
         } else {
-            newQuantity[index]++;
+            if(newQuantity[index] < 10) newQuantity[index]++;
         }
         setCart(newCart);
         setCartQuantity(newQuantity);

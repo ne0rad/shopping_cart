@@ -1,3 +1,5 @@
+import CartItem from "./CartItem";
+
 function Cart({ cart, cartQuantity, removeFromCart, changeQuantity, clearCart, cartOpen, toggleCart, ProductsJSON, products }) {
 
     function checkOut() {
@@ -23,18 +25,15 @@ function Cart({ cart, cartQuantity, removeFromCart, changeQuantity, clearCart, c
                     <div id="Cart">
                         {cart.length > 0 ? (
                             <div>
-                                <ul>
-                                    {cart.map((id, i) => {
-                                        return (
-                                            <li key={id}>
-                                                <div className="title-text">{ProductsJSON[id].name}</div> <div className="description-text">
-                                                    Units: {cartQuantity[i] + ' '}
-                                                    Price: £{(Math.round(ProductsJSON[id].price * cartQuantity[i] * 100) / 100).toFixed(2)}
-                                                </div>
-                                            </li>
-                                        )
-                                    })}
-                                </ul>
+                                {cart.map((item, index) => (
+                                    <CartItem
+                                        key={index}
+                                        product={ProductsJSON[item]}
+                                        quantity={cartQuantity[index]}
+                                        removeFromCart={() => removeFromCart(index)}
+                                        changeQuantity={changeQuantity}
+                                    />
+                                ))}
                                 <div className="title-text">Total: £{getTotalPrice()}</div>
                                 <br />
                                 <button className="btn" onClick={() => checkOut()}>Checkout</button>

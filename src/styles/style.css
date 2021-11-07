@@ -220,6 +220,25 @@ body {
   opacity: 0.9;
 }
 
+.quantity-input {
+  display: inline;
+  font-size: 14px;
+  width: 35px;
+  text-align: center;
+  margin: 0 5px;
+  padding: 4px;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  color: var(--foreground);
+  transition: all 0.2s;
+  box-shadow: 0 0 1px 1px black;
+}
+
+.quantity-input:hover {
+  box-shadow: 0 0 3px 1px black;
+}
+
 @media screen and (max-width: 550px) {
   #Header {
     justify-content: space-around;

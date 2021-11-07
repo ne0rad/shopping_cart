@@ -22,11 +22,16 @@ function Products({ cart, cartQuantity, addToCart, changeQuantity, toggleCart, o
               <span> Units:</span>
               <input
                 name="quantity"
+                className="quantity-input"
                 type="number"
                 min="0"
-                max="100"
+                max="10"
                 value={getCartQuantity(product.id)}
-                onChange={(e) => changeQuantity(product.id, parseInt(e.target.value))}
+                onChange={(e) => {
+                  if (e.target.value > 0 && e.target.value <= 10) {
+                    changeQuantity(product.id, parseInt(e.target.value))
+                  }
+                }}
               />
               <button className="btn" onClick={() => addToCart(product.id)}>ADD</button>
               <br />
