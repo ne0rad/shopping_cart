@@ -4,11 +4,13 @@ import Cart from "./Components/Cart";
 import Header from "./Components/Header";
 import Main from "./Components/Main";
 import Footer from "./Components/Footer";
+import ProductsJSON from './Products/products.json';
 
 function App() {
     const [cart, setCart] = useState([]);
     const [cartQuantity, setCartQuantity] = useState([]);
     const [cartOpen, setCartOpen] = useState(false);
+    const [products, setProducts] = useState([]);
 
     useEffect(() => {
         let loadedCart = JSON.parse(window.sessionStorage.getItem('cart'));
@@ -17,40 +19,70 @@ function App() {
         if(!loadedQuantity) loadedQuantity = [];
         setCart(loadedCart);
         setCartQuantity(loadedQuantity);
+        addProductsToStateAsArray();
     }, []);
 
-    function addToCart(item) {
-        const itemIndex = cart.findIndex(cartItem => cartItem.id === item.id);
-        if (itemIndex === -1) {
-            setCart([...cart, item]);
-            setCartQuantity([...cartQuantity, 1]);
-            window.sessionStorage.setItem('cart', JSON.stringify([...cart, item]));
-            window.sessionStorage.setItem('quantity', JSON.stringify([...cartQuantity, 1]));
+    // add item to cart. if already in cart, increase quantity
+    function addToCart(id) {
+        let newCart = [...cart];
+        let newQuantity = [...cartQuantity];
+        let index = newCart.indexOf(id);
+        if(index === -1) {
+            newCart.push(id);
+            newQuantity.push(1);
         } else {
-            const newCartQuantity = [...cartQuantity];
-            newCartQuantity[itemIndex]++;
-            setCartQuantity(newCartQuantity);
-            window.sessionStorage.setItem('quantity', JSON.stringify(newCartQuantity));
+            newQuantity[index]++;
         }
+        setCart(newCart);
+        setCartQuantity(newQuantity);
+        updateSessionStorage(newCart, newQuantity);
     }
 
-    function changeQuantity(item, quantity) {
-        const itemIndex = cart.findIndex(cartItem => cartItem.id === item.id);
-        const newCartQuantity = [...cartQuantity];
-        newCartQuantity[itemIndex] = quantity;
-        setCartQuantity(newCartQuantity);
+    // Take ProductsJSON object and add every object to state as an array
+    function addProductsToStateAsArray() {
+        const productsArray = [];
+        for (let product in ProductsJSON) {
+            productsArray.push(ProductsJSON[product]);
+        }
+        setProducts(productsArray);
     }
 
-    function removeFromCart(item) {
-        setCart(cart.filter(cartItem => cartItem.id !== item.id));
+    // change item quantity. remove item from a cart if quantity is 0. Add if doesn't exist in cart
+    function changeQuantity(id, quantity) {
+        let newCart = [...cart];
+        let newQuantity = [...cartQuantity];
+        let index = cart.indexOf(id);
+        if (quantity === 0) {
+            newCart.splice(index, 1);
+            newQuantity.splice(index, 1);
+        } else {
+            if (index === -1) {
+                newCart.push(id);
+                newQuantity.push(quantity);
+            } else {
+                newQuantity[index] = quantity;
+            }
+        }
+        setCart(newCart);
+        setCartQuantity(newQuantity);
+        updateSessionStorage(newCart, newQuantity);
+    }
+
+    function removeFromCart(id) {
+        let newCart = [...cart];
+        let newQuantity = [...cartQuantity];
+        let index = cart.indexOf(id);
+        newCart.splice(index, 1);
+        newQuantity.splice(index, 1);
+        setCart(newCart);
+        setCartQuantity(newQuantity);
+        updateSessionStorage(newCart, newQuantity);
     }
 
     function clearCart() {
         setCart([]);
         setCartQuantity([]);
-        setCartOpen(false);
-        window.sessionStorage.setItem('cart', JSON.stringify([]));
-        window.sessionStorage.setItem('quantity', JSON.stringify([]));
+        updateSessionStorage([], []);
     }
 
     function toggleCart() {
@@ -59,6 +91,11 @@ function App() {
 
     function openCart() {
         setCartOpen(true);
+    }
+
+    function updateSessionStorage(cart, quantity) {
+        window.sessionStorage.setItem('cart', JSON.stringify(cart));
+        window.sessionStorage.setItem('quantity', JSON.stringify(quantity));
     }
 
     return (
@@ -71,6 +108,8 @@ function App() {
                 clearCart={clearCart}
                 cartOpen={cartOpen}
                 toggleCart={toggleCart}
+                ProductsJSON={ProductsJSON}
+                products={products}
             />
             <HashRouter>
                 <Header
@@ -79,10 +118,13 @@ function App() {
                 />
                 <Main
                     cart={cart}
+                    cartQuantity={cartQuantity}
                     addToCart={addToCart}
                     changeQuantity={changeQuantity}
                     toggleCart={toggleCart}
                     openCart={openCart}
+                    ProductsJSON={ProductsJSON}
+                    products={products}
                 />
             </HashRouter>
             <Footer />

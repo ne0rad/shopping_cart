@@ -1,14 +1,14 @@
-[
-    {
-        "id": 0,
-        "name": "GeForce RTX 3080 Graphics Card",
-        "description": "High end graphics card.",
-        "price": 599.99
-    },
-    {
-        "id": 1,
-        "name": "GeForce RTX 3090 Graphics Card",
-        "description": "Top tier graphics card, for our most demanding customers.",
-        "price": 899.99
-    }
-]
+{
+  "0": {
+    "id": 0,
+    "name": "GeForce RTX 3080 Graphics Card",
+    "description": "High end graphics card.",
+    "price": 599.99
+  },
+  "1": {
+    "id": 1,
+    "name": "GeForce RTX 3090 Graphics Card",
+    "description": "Top tier graphics card, for our most demanding customers.",
+    "price": 899.99
+  }
+}

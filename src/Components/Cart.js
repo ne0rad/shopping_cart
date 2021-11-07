@@ -1,6 +1,4 @@
-import ProductsJSON from '../Products/products.json';
-
-function Cart({ cart, cartQuantity, removeFromCart, changeQuantity, clearCart, cartOpen, toggleCart }) {
+function Cart({ cart, cartQuantity, removeFromCart, changeQuantity, clearCart, cartOpen, toggleCart, ProductsJSON, products }) {
 
     function checkOut() {
         let total = getTotalPrice();
@@ -11,12 +9,10 @@ function Cart({ cart, cartQuantity, removeFromCart, changeQuantity, clearCart, c
 
     function getTotalPrice() {
         let total = 0;
-        cart.map((item, i) => {
-            const itemIndex = ProductsJSON.findIndex(product => product.id === item.id);
-            return total += ProductsJSON[itemIndex].price * cartQuantity[i];
-        });
-        total = Math.round(total * 100) / 100;
-        return total;
+        for (let i = 0; i < cart.length; i++) {
+            total += ProductsJSON[cart[i]].price * cartQuantity[i];
+        }
+        return (Math.round(total * 100) / 100).toFixed(2);
     }
 
     return (
@@ -28,11 +24,12 @@ function Cart({ cart, cartQuantity, removeFromCart, changeQuantity, clearCart, c
                         {cart.length > 0 ? (
                             <div>
                                 <ul>
-                                    {cart.map((product, i) => {
+                                    {cart.map((id, i) => {
                                         return (
-                                            <li key={product.id}>
-                                                <div className="title-text">{product.name}</div> <div className="description-text">
-                                                    Units: {cartQuantity[i]}  Price: £{Math.round(product.price * cartQuantity[i] * 100) / 100}
+                                            <li key={id}>
+                                                <div className="title-text">{ProductsJSON[id].name}</div> <div className="description-text">
+                                                    Units: {cartQuantity[i] + ' '}
+                                                    Price: £{(Math.round(ProductsJSON[id].price * cartQuantity[i] * 100) / 100).toFixed(2)}
                                                 </div>
                                             </li>
                                         )
