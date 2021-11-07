@@ -28,12 +28,12 @@ function Products({ cart, cartQuantity, addToCart, changeQuantity, toggleCart, o
                 max="10"
                 value={getCartQuantity(product.id)}
                 onChange={(e) => {
-                  if (e.target.value > 0 && e.target.value <= 10) {
+                  if (e.target.value >= 0 && e.target.value <= 10) {
                     changeQuantity(product.id, parseInt(e.target.value))
                   }
                 }}
               />
-              <button className="btn" onClick={() => addToCart(product.id)}>ADD</button>
+              <button className="btn" onClick={() => addToCart(product.id)}>{getCartQuantity(product.id) > 0 ? "+1" : "Add to Cart"}</button>
               <br />
               <br />
             </li>

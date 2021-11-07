@@ -19,34 +19,32 @@ function Cart({ cart, cartQuantity, removeFromCart, changeQuantity, clearCart, c
 
     return (
         <>
-
-            {
-                cartOpen && (
-                    <div id="Cart">
-                        {cart.length > 0 ? (
-                            <div>
-                                {cart.map((item, index) => (
-                                    <CartItem
-                                        key={index}
-                                        product={ProductsJSON[item]}
-                                        quantity={cartQuantity[index]}
-                                        removeFromCart={() => removeFromCart(index)}
-                                        changeQuantity={changeQuantity}
-                                    />
-                                ))}
-                                <div className="title-text">Total: £{getTotalPrice()}</div>
-                                <br />
-                                <button className="btn" onClick={() => checkOut()}>Checkout</button>
-                                <button className="btn" onClick={() => clearCart()}>Clear Cart</button>
-                            </div>
-                        ) : (
-                            <div>
-                                No items in the cart
-                            </div>
-                        )}
-                        <button className="btn btn-red" onClick={() => toggleCart()}>Close</button>
-                    </div>
-                )
+            {cartOpen && (
+                <div id="Cart">
+                    {cart.length > 0 ? (
+                        <div>
+                            {cart.map((item, index) => (
+                                <CartItem
+                                    key={index}
+                                    product={ProductsJSON[item]}
+                                    quantity={cartQuantity[index]}
+                                    removeFromCart={() => removeFromCart(index)}
+                                    changeQuantity={changeQuantity}
+                                />
+                            ))}
+                            <div className="title-text">Total: £{getTotalPrice()}</div>
+                            <br />
+                            <button className="btn" onClick={() => checkOut()}>Checkout</button>
+                            <button className="btn" onClick={() => clearCart()}>Clear Cart</button>
+                        </div>
+                    ) : (
+                        <div>
+                            No items in the cart
+                        </div>
+                    )}
+                    <button className="btn btn-red" onClick={() => toggleCart()}>Close</button>
+                </div>
+            )
             }
         </>
     )
