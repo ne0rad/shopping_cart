@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Shopping Cart Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was made for The Odin Project
+
+Live Preview: https://ne0rad.github.io/shopping_cart/
 
 ## Available Scripts
 
