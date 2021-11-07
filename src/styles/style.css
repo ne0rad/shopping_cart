@@ -137,3 +137,28 @@ body {
   color: var(--background);
   transition: all 0.2s;
 }
+
+.btn {
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin: 0.5em 1em;
+  border-radius: 5px;
+  text-decoration: none;
+  color: var(--foreground);
+  background-color: skyblue;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  text-shadow: 0 0 1px white;
+  color: white;
+}
+
+.btn:active {
+  color: white;
+  text-shadow: none;
+}
