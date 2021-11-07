@@ -48,6 +48,7 @@ function App() {
     function clearCart() {
         setCart([]);
         setCartQuantity([]);
+        setCartOpen(false);
         window.sessionStorage.setItem('cart', JSON.stringify([]));
         window.sessionStorage.setItem('quantity', JSON.stringify([]));
     }

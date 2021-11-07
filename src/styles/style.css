@@ -1,8 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 
 :root {
-  --background: #cecece;
+  --background: #dbdbdb;
   --foreground: #383838;
+  --menu: #3570bd;
+}
+
+li {
+  list-style: none;
 }
 
 #content {
@@ -51,10 +56,11 @@ body {
   font-size: 14px;
   width: 20px;
   height: 20px;
-  right: 30px;
+  right: 20px;
   top: -7px;
+  margin: -10px -10px;
   border-radius: 50%;
-  background-color: #1157da;
+  background-color: #ac1111;
   color: white;
   opacity: 0.8;
   z-index: 1;
@@ -70,7 +76,7 @@ body {
   justify-content: space-between;
   width: 100%;
   height: 40px;
-  background-color: #3570bd;
+  background-color: var(--menu);
   color: #ebebeb;
   box-shadow: 0 3px 6px 0 black;
   user-select: none;
@@ -159,11 +165,11 @@ body {
 .btn {
   display: inline-block;
   padding: 0.5em 1em;
-  margin: 0.5em 1em;
+  margin: 5px 10px;
   border-radius: 5px;
   text-decoration: none;
-  color: var(--foreground);
-  background-color: skyblue;
+  color: var(--background);
+  background-color: var(--menu);
   font-family: "Ubuntu", sans-serif;
   font-size: 16px;
   font-weight: bold;
@@ -179,4 +185,34 @@ body {
 .btn:active {
   color: white;
   text-shadow: none;
+}
+
+.btn-red {
+  background-color: #b90606;
+  font-size: 14px;
+}
+
+.product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  margin: 10px 10px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px 0 black;
+}
+
+.title-text {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--foreground);
+}
+
+.description-text {
+  font-size: 14px;
+  color: var(--foreground);
+  opacity: 0.9;
 }

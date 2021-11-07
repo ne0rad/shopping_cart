@@ -9,16 +9,15 @@ function Products({ addToCart, changeQuantity, toggleCart, openCart }) {
         {ProductsJSON.map((product) => {
           return (
             <li key={product.id}>
-              {product.name}
-              <br />
-              {product.description}
-              <br />
+              <div className="title-text">{product.name}</div>
+              <div className="description-text">{product.description}</div>
               £{product.price}
-              <br />
               <button className="btn" onClick={() => {
                 addToCart(product);
                 openCart();
               }}>ADD</button>
+              <br />
+              <br />
             </li>
           )
         })}
