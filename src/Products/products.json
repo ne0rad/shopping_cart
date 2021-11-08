@@ -11,20 +11,20 @@
     "description": "Top tier graphics card, for our most demanding customers.",
     "price": 899.99
   },
-  "3": {
-    "id": 3,
+  "2": {
+    "id": 2,
     "name": "Nintendo Switch Console",
     "description": "The best selling Nintendo console ever! Fun for the whole family",
     "price": 359.99
   },
-  "4": {
-    "id": 4,
+  "3": {
+    "id": 3,
     "name": "Playstation 5 Digital Edition",
     "description": "Most powerful playstation to date. Digital edition (no disc)",
     "price": 389.99
   },
-  "5": {
-    "id": 5,
+  "4": {
+    "id": 4,
     "name": "Playstation 5 Console",
     "description": "Most powerful playstation to date.",
     "price": 429.99

@@ -42,7 +42,6 @@ function Cart({ cart, cartQuantity, removeFromCart, changeQuantity, clearCart, c
                             No items in the cart
                         </div>
                     )}
-                    <button className="btn btn-red" onClick={() => toggleCart()}>Close</button>
                 </div>
             )
             }
