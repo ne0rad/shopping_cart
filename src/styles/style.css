@@ -10,13 +10,6 @@ li {
   list-style: none;
 }
 
-#content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 405px;
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
@@ -24,6 +17,14 @@ body {
   font-size: 16px;
   margin: 0;
   padding: 0;
+}
+
+#content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 405px;
+  overflow: scroll;
 }
 
 .main {
@@ -34,7 +35,7 @@ body {
   margin: 70px 5px 40px 5px;
   padding: 10px;
   width: 95%;
-  min-height: 80vh;
+  min-height: 80%;
   background-color: white;
   border-radius: 5px;
   box-shadow: 2px 2px 4px 0 black;
@@ -73,7 +74,7 @@ body {
 #Header {
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -169,8 +170,11 @@ body {
 .products {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  flex-direction: column;
   flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
 }
 
 .product {
@@ -179,8 +183,7 @@ body {
   justify-content: space-between;
   flex-direction: column;
   flex-wrap: nowrap;
-  height: 140px;
-  width: 300px;
+  width: 350px;
   margin: 10px;
   padding: 10px;
   background-color: var(--background);
