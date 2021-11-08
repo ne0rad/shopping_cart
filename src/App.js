@@ -13,6 +13,7 @@ function App() {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
+        // Getting session storage information if availabe
         let loadedCart = JSON.parse(window.sessionStorage.getItem('cart'));
         let loadedQuantity = JSON.parse(window.sessionStorage.getItem('quantity'));
         if(!loadedCart) loadedCart = [];
@@ -22,7 +23,6 @@ function App() {
         addProductsToStateAsArray();
     }, []);
 
-    // add item to cart. if already in cart, increase quantity
     function addToCart(id) {
         let newCart = [...cart];
         let newQuantity = [...cartQuantity];
@@ -38,7 +38,6 @@ function App() {
         updateSessionStorage(newCart, newQuantity);
     }
 
-    // Take ProductsJSON object and add every object to state as an array
     function addProductsToStateAsArray() {
         const productsArray = [];
         for (let product in ProductsJSON) {
@@ -47,7 +46,6 @@ function App() {
         setProducts(productsArray);
     }
 
-    // change item quantity. remove item from a cart if quantity is 0. Add if doesn't exist in cart
     function changeQuantity(id, quantity) {
         let newCart = [...cart];
         let newQuantity = [...cartQuantity];

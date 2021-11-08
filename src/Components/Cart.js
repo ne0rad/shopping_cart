@@ -35,10 +35,9 @@ function Cart({ cart, cartQuantity, removeFromCart, changeQuantity, clearCart, c
                             <div className="title-text">Total: £{getTotalPrice()}</div>
                             <br />
                             <button className="btn" onClick={() => checkOut()}>Checkout</button>
-                            <button className="btn" onClick={() => clearCart()}>Clear Cart</button>
                         </div>
                     ) : (
-                        <div>
+                        <div className="title-text">
                             No items in the cart
                         </div>
                     )}
