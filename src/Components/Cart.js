@@ -25,10 +25,11 @@ function Cart({ cart, cartQuantity, removeFromCart, changeQuantity, clearCart, c
                         <div>
                             {cart.map((item, index) => (
                                 <CartItem
-                                    key={index}
+                                    key={item}
+                                    id={item}
                                     product={ProductsJSON[item]}
                                     quantity={cartQuantity[index]}
-                                    removeFromCart={() => removeFromCart(index)}
+                                    removeFromCart={removeFromCart}
                                     changeQuantity={changeQuantity}
                                 />
                             ))}
