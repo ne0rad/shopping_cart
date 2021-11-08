@@ -19,7 +19,7 @@ function Product({ product, quantity, addToCart, changeQuantity }) {
                                     <button
                                         className="btn btn-quantity"
                                         onClick={() => quantity > 0 && changeQuantity(product.id, quantity - 1)}
-                                    >-</button>
+                                    >−</button>
                                     <span className="quantity-text">{quantity}</span>
                                 </>)
                             }

@@ -33,7 +33,6 @@ body {
   justify-content: flex-start;
   flex-direction: column;
   margin: 70px 5px 40px 5px;
-  padding: 10px;
   width: 95%;
   min-height: 80vh;
   background-color: white;
@@ -270,8 +269,12 @@ body {
 }
 
 .btn-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 14px;
-  padding: 0.5em 0.8em;
+  height: 30px;
+  width: 120px;
   margin: 0;
 }
 
@@ -280,7 +283,8 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 14px;
-  padding: 0.5em 0.8em; 
+  width: 30px;
+  height: 30px; 
   margin: 0;
   opacity: 0.8;
 }
