@@ -4,7 +4,7 @@
   --background: #dfdfdf;
   --foreground: #383838;
   --card-bg: #f5f5f5;
-  --menu: #3570bd;
+  --menu: #4879d4;
 }
 
 li {
@@ -48,7 +48,7 @@ body {
   top: 40px;
   padding: 20px 10px 5px 10px;
   border-radius: 5px;
-  background-color: #dae6f0;
+  background-color: var(--card-bg);
   box-shadow: 2px 2px 4px 0 black;
   overflow: scroll;
   scroll-behavior: auto;
@@ -180,6 +180,7 @@ body {
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
+  max-width: 840px;
 }
 
 .product-wrap {
