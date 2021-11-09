@@ -9,7 +9,6 @@ function Header({ toggleCart, cart }) {
             <div id="menu">
                 <Link className="menu-item" to={'/'}>Home</Link>
                 <Link className="menu-item" to={'/products'}>Products</Link>
-                <Link className="menu-item" to={'/contacts'}>Contacts</Link>
 
                 <div className="menu-item" onClick={toggleCart}>
                     <svg width="24" height="24" viewBox="0 0 24 24">

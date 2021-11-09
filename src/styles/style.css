@@ -183,6 +183,33 @@ body {
   max-width: 840px;
 }
 
+.home {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.home img {
+  border-radius: 5px;
+}
+
+.home-item {
+  padding: 10px;
+  margin: 10px;
+  background-color: var(--card-bg);
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px 0 black;
+}
+.arrivals {
+  max-width: min-content;
+}
+.news {
+  flex: 1;
+  min-width: 300px;
+}
+
 .product-wrap {
   display: flex;
   align-items: center;
@@ -407,5 +434,12 @@ body {
   }
   #header-logo {
     display: none;
+  }
+}
+
+@media screen and (max-width: 715px) {
+  .home {
+    justify-content: center;
+    flex: 1;
   }
 }

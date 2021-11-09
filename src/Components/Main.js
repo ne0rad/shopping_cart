@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Home from '../Pages/Home';
 import Products from '../Pages/Products';
-import Contacts from '../Pages/Contacts';
 import NotFound from '../Pages/NotFound';
 
 function Main({ cart, cartQuantity, addToCart, changeQuantity, toggleCart, openCart, ProductsJSON, products }) {
@@ -20,7 +19,6 @@ function Main({ cart, cartQuantity, addToCart, changeQuantity, toggleCart, openC
                 ProductsJSON={ProductsJSON}
                 products={products}
             />} />
-            <Route path={'/contacts'} element={<Contacts />} />
             <Route path="*" element={<NotFound />} />
 
         </Routes>
