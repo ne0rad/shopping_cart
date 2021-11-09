@@ -13,7 +13,6 @@ function Products({ cart, cartQuantity, addToCart, changeQuantity, toggleCart, o
 
   return (
     <div id="Products" className="main">
-      <h1>Check out our product selection!</h1>
       <ul className="products">
         {products.map((product) => {
           return (
