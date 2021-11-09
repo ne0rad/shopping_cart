@@ -3,25 +3,30 @@ import Home from '../Pages/Home';
 import Products from '../Pages/Products';
 import NotFound from '../Pages/NotFound';
 
-function Main({ cart, cartQuantity, addToCart, changeQuantity, toggleCart, openCart, ProductsJSON, products }) {
+function Main({ cart, cartQuantity, addToCart, changeQuantity, toggleCart, openCart, closeCart, ProductsJSON, products }) {
 
     return (
-        <Routes>
+        <div
+            className="main-wrap"
+            onClick={() => closeCart()}
+        >
+            <Routes>
 
-            <Route path={'/'} element={<Home />} />
-            <Route path={'/products'} element={<Products
-                cart={cart}
-                cartQuantity={cartQuantity}
-                addToCart={addToCart}
-                changeQuantity={changeQuantity}
-                toggleCart={toggleCart}
-                openCart={openCart}
-                ProductsJSON={ProductsJSON}
-                products={products}
-            />} />
-            <Route path="*" element={<NotFound />} />
+                <Route path={'/'} element={<Home />} />
+                <Route path={'/products'} element={<Products
+                    cart={cart}
+                    cartQuantity={cartQuantity}
+                    addToCart={addToCart}
+                    changeQuantity={changeQuantity}
+                    toggleCart={toggleCart}
+                    openCart={openCart}
+                    ProductsJSON={ProductsJSON}
+                    products={products}
+                />} />
+                <Route path="*" element={<NotFound />} />
 
-        </Routes>
+            </Routes>
+        </div>
     )
 }
 

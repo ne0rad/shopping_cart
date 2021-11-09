@@ -91,6 +91,10 @@ function App() {
         setCartOpen(true);
     }
 
+    function closeCart() {
+        setCartOpen(false);
+    }
+
     function updateSessionStorage(cart, quantity) {
         window.sessionStorage.setItem('cart', JSON.stringify(cart));
         window.sessionStorage.setItem('quantity', JSON.stringify(quantity));
@@ -121,6 +125,7 @@ function App() {
                     changeQuantity={changeQuantity}
                     toggleCart={toggleCart}
                     openCart={openCart}
+                    closeCart={closeCart}
                     ProductsJSON={ProductsJSON}
                     products={products}
                 />
